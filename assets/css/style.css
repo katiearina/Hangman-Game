@@ -1,0 +1,66 @@
+body {
+	background-image: url("../images/Murakami-Bingo-BG.jpg");
+}
+
+html, body {
+	height: 100%;
+	overflow-x: hidden;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+	min-height: 100%;
+	height: auto;
+	/* Negative indent footer by its height */
+	margin: 0px auto -50px;
+	/* Pad bottom by footer height */
+	padding: 0px 0px 50px 0px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+	/* Must match margin-bottom in .wrapper CSS */
+	height: 50px;
+	background-color: #ffffff;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-color: black;
+	border-width: 1px;
+	text-align: center;
+	overflow: auto;
+}
+
+.p-footer-main {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 8px 0px 0px 0px;
+}
+
+.p-footer-external {
+	font-size: 11px;
+	margin: 5px 0px 0px 0px;
+}
+
+.top-content {
+	top: 0px;
+	background-color: #ffffff;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	padding: 0px 0px 10px 0px;
+	text-align: center;
+}
+
+.main-hangman-content, .right-content, .bottom-content {
+	background-color: #ffffff;
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	text-align: center;
+	margin: 20px 0px 20px 0px;
+	padding: 20px;
+}
+
+h1 {
+	font-weight: bold;
+}
