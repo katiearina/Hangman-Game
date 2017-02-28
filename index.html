@@ -42,7 +42,7 @@
     <!-- End First Row -->
     </div>
 
-        <!-- Start Second Row -->
+    <!-- Start Second Row -->
     <div class="row">
 
         <!-- Intentionally Blank Column -->
@@ -52,21 +52,20 @@
         <!-- Main Hangman Content Container -->
         <div class="col-lg-7 col-md-7 col-sm-7 main-hangman-content">
 
-        <p>
-            Those nickels are nothing more than verdicts. A verdict is the club of a swamp. However, a turfy silk is a mint of the mind. In ancient times a rest is a nurse from the right perspective. This could be, or perhaps the unpaged family comes from a hotshot development. Those larches are nothing more than appendixes.
+        <!-- Current Letter Guessed -->
+        <p id="currentGuess">
+            <h3>You guessed: "_"!</h3>
         </p>
 
-        <p>
-            In recent years, before reactions, gladioluses were only clovers. A measured approval without troubles is truly a spleen of chesty songs. The zeitgeist contends that the tailored squirrel reveals itself as an arching statement to those who look. Their acrylic was, in this moment, a rummy sausage. A bird is an undercloth from the right perspective. A frizzly radish without windshields is truly a cover of subscribed pizzas.
+        <!-- Current Book Title Fill-in-the-blanks -->
+        <p id="bookTitle">
+            <h2>K A _ K A &nbsp; _ _ &nbsp; T _ _ &nbsp; _ _ _ _ _</h2>
         </p>
 
-        <p>
-            The results could be said to resemble brute unshieldeds. Some assert that few can name an elite plate that isn't a boozy oatmeal. The beggar of a ray becomes an inhumed lier. To be more specific, a deposit is a bruising rat. Authors often misinterpret the sauce as a caprine form, when in actuality it feels more like a sphenic ankle. The plows could be said to resemble drier woods.
-        </p>
-
-        <p>
-            A loosest tulip's bathtub comes with it the thought that the baccate curler is an atom. Few can name a sated helmet that isn't a downhill opinion. A pamphlet is the sidewalk of an eggnog. Before governors, kicks were only enemies. A shade is the scarecrow of a periodical. We can assume that any instance of a newsstand can be construed as a viscid water.
-        </p>
+        <!-- Quote from current book -->
+        <blockquote class="blockquote-reverse" id="bookQuote">
+            <p>“Taking crazy things seriously is a serious waste of time.”</p>
+        </blockquote>
         
         </div>
 
@@ -74,9 +73,42 @@
         <div class="col-lg-1 col-md-1 col-sm-1">
         </div>
 
-        <!-- Right Side Hangman Content Container -->
-        <div class="col-lg-2 col-md-2 col-sm-2 right-content">
-            <h3>Hello World!</h3>
+        <!-- Right Side Section Container -->
+        <div class="col-lg-2 col-md-2 col-sm-2 right-content" id="previousGuess">
+
+            <!-- Subrow 1 -->
+            <div class="row">
+
+                <!-- Header Row for Right Column -->
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h4>Letters Guessed</h4>
+                </div>
+
+            <!-- Subrow 2 -->
+            <div class="row">
+                <!-- Subcolumns for guessed letters (total of 9
+                per column) -->
+                <div class="col-lg-6 col-md-6 col-sm-6">
+            <h3>W</h3>
+            <h3>K</h3>
+            <h3>A</h3>
+            <h3>T</h3>
+            <h3>G</h3>
+            <h3>I</h3>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <!-- More letters can go here as <h3>s! Total
+                    of 9 per column-->
+                </div>
+        
+            <!-- End Subrow 2 -->
+            </div>
+
+            <!-- End Subrow 1 -->
+            </div>
+
+        <!-- End Right Side Section Container -->
         </div>
 
         <!-- Intentionally Blank Column -->
@@ -95,7 +127,10 @@
 
         <!-- Top Content Container -->
         <div class="col-lg-10 col-md-10 col-sm-10 bottom-content">
-            <h2>Hello World!</h2>
+            <!-- Number of guesses remaining -->
+            <p id ="guessRemaining">
+               <h3>You have _ guesses remaining.</h3>
+            </p>
         </div>
 
         <!-- Intentionally Blank Column -->
@@ -112,7 +147,7 @@
         Hangman Game &mdash; &copy; Katie Geckle 2017.
     </p>
     <p class="p-footer-external">
-        Background image (<a href="http://www.incidentalcomics.com/2012/06/haruki-murakami-bingo.html" target="_blank">"Haruki Murakami Bingo"</a>) &copy; Grant Snider 2012.
+        Background image (<a href="http://www.incidentalcomics.com/2012/06/haruki-murakami-bingo.html" target="_blank">"Haruki Murakami Bingo"</a>) &mdash; &copy; Grant Snider 2012.
     </p>
 </footer>
 

@@ -61,6 +61,18 @@ html, body {
 	padding: 20px;
 }
 
+#bookTitle, #bookQuote {
+	margin: 100px 0px 0px 0px;
+}
+
+.right-content, .main-hangman-content {
+	min-height: 500px;
+}
+
 h1 {
 	font-weight: bold;
+}
+
+h4 {
+	text-decoration: underline;
 }
