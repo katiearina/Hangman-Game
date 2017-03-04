@@ -61,9 +61,15 @@ html, body {
 	padding: 20px;
 }
 
-#bookTitle, #bookQuote {
+#book-title, #book-quote {
 	margin: 100px 0px 0px 0px;
 }
+
+/*#current-guess {
+	height: 50px;
+	margin: 0px;
+	padding: 0px;
+}*/
 
 .right-content, .main-hangman-content {
 	min-height: 500px;
