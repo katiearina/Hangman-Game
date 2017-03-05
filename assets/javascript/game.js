@@ -29,9 +29,13 @@ var bookQuoteArray = [
 "Thinking about spaghetti that boils eternally but is never done is a sad, sad thing."
 ];
 
+// Pick a random book title index 
+var randomIndex = [Math.floor(Math.random() * bookTitleArray.length)];
+// Pick a random book title 
+var currentTitle = bookTitleArray[randomIndex];
+
 var bookQuote = document.getElementById("book-quote");
 var bookTitle = document.getElementById("book-title");
-// var currentTitle = bookTitleArray[randomNumber].toUpperCase();
 var currentGuess = document.getElementById("current-guess");
 var guessRemaining = document.getElementById("guess-remaining");
 var lettersGuessed = [];
@@ -40,10 +44,8 @@ var lettersGuessedDiv2 = document.getElementById("letters-guessed-2");
 var guessStart = 15;
 var userGuess = 0;
 var answerArray = [];
+var remainingLetters = currentTitle.length;
 var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-
-// Pick a random book title index 
-var randomIndex = [Math.floor(Math.random() * bookTitleArray.length)];
 	
 	// Sets text on page opening
 	currentGuess.innerHTML = "<h3>Guess a letter!</h3>";
@@ -54,6 +56,9 @@ var randomIndex = [Math.floor(Math.random() * bookTitleArray.length)];
 	// Console log the index chosen
 	console.log(randomIndex);
 
+	// Console log the title chosen
+	console.log(currentTitle);
+
 	// Console log the book title at that index
 	console.log(bookTitleArray[randomIndex]);
 
@@ -62,7 +67,7 @@ var randomIndex = [Math.floor(Math.random() * bookTitleArray.length)];
 
 	// Sets blank Answer Array to equal number of letters/characters in book title, makes them
 	// into "_" characters
-	for (var i = 0; i < bookTitleArray[randomIndex].length; i++) {
+	for (var i = 0; i < currentTitle.length; i++) {
 		answerArray[i] = "_";
 		bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
     	}
@@ -78,21 +83,29 @@ var randomIndex = [Math.floor(Math.random() * bookTitleArray.length)];
 		currentGuess.innerHTML = "<h3>You guessed " + userGuess + "!</h3>";
 		// Add key press to answerArray and 
 		lettersGuessed.push(userGuess);
-		// Added letters guessed to "Letters Guessed:" page area
-		lettersGuessedDiv.innerHTML = "<h3>" + (lettersGuessed.join(" ")) + "</h3>";
 		// Console log answerArray as new letters are pressed
 		console.log(lettersGuessed);
-	}
 
-			for (j = 0; j < bookTitleArray[randomIndex].length; j++) {
-				console.log(j);
-				console.log(bookTitleArray[j]);
-				if (bookTitleArray.length[j] === userGuess) {
-					answerArray[j] = userGuess;
-					answerArray.join(" ");
-					remainingLetters--;
+				for (j = 0; j < currentTitle.length; j++) {
+					if (currentTitle[j].toUpperCase() === userGuess && userGuess !== answerArray[j]) {
+						answerArray[j] = userGuess;
+						bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
+						lettersGuessedDiv.innerHTML = "<h3>" + (lettersGuessed.join(" ")) + "</h3>";
+						remainingLetters--;
+						console.log(remainingLetters);
+						}
+
+					else if (currentTitle[j].toUpperCase() === userGuess && userGuess === answerArray[j]) {
+						currentGuess.innerHTML = "<h3>You've already guessed that one! Guess another letter.</h3>";
+						lettersGuessedDiv.innerHTML = "<h3>" + (lettersGuessed.join(" ")) + "</h3>";
+						console.log(guessStart);
+						// This is annoyingly decreasing this for each letter that is not === title, which is not what I want
+						// I just want it to decrease by 1 for each guess.
+						guessStart--;
+						guessRemaining.innerHTML = "<h3> You have " + guessStart + " guesses remaining.</h3>";
 					}
-				else {
-					guessStart--;
+
 				}
-			}
+
+	// End of function. Do not delete!
+	}
