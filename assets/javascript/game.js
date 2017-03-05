@@ -104,7 +104,6 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 						guessStart--;
 						guessRemaining.innerHTML = "<h3> You have " + guessStart + " guesses remaining.</h3>";
 					}
-
 				}
 
 	// End of function. Do not delete!
