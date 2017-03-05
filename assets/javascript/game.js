@@ -68,9 +68,15 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 	// Sets blank Answer Array to equal number of letters/characters in book title, makes them
 	// into "_" characters
 	for (var i = 0; i < currentTitle.length; i++) {
-		answerArray[i] = "_";
-		bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
-    	}
+			if (currentTitle.charAt(i) === " ") {
+				answerArray[i] = "&nbsp;";
+				bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
+			}
+			else {
+				answerArray[i] = "_";
+				bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
+		    	}
+    }
 	    	// Console log the Answer  
 			console.log(answerArray.join(" "));
 
@@ -99,6 +105,14 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 						currentGuess.innerHTML = "<h3>You've already guessed that one! Guess another letter.</h3>";
 						lettersGuessedDiv.innerHTML = "<h3>" + (lettersGuessed.join(" ")) + "</h3>";
 						console.log(guessStart);
+						// This is annoyingly decreasing this for each letter that is not === title, which is not what I want
+						// I just want it to decrease by 1 for each guess.
+						guessStart--;
+						guessRemaining.innerHTML = "<h3> You have " + guessStart + " guesses remaining.</h3>";
+					}
+
+					else {
+						lettersGuessedDiv.innerHTML = "<h3>" + (lettersGuessed.join(" ")) + "</h3>";
 						// This is annoyingly decreasing this for each letter that is not === title, which is not what I want
 						// I just want it to decrease by 1 for each guess.
 						guessStart--;
