@@ -38,114 +38,61 @@ var lettersGuessed = [];
 var lettersGuessedDiv = document.getElementById("letters-guessed");
 var lettersGuessedDiv2 = document.getElementById("letters-guessed-2");
 var guessStart = 15;
+var userGuess = 0;
+var answerArray = [];
 var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-// var randomNumber = (Math.floor(Math.random() * bookTitleArray.length));
 
-// Pick a random book title index [i]
-	var randomIndex = bookTitleArray[Math.floor(Math.random() * bookTitleArray.length)];
-	console.log(randomIndex);
-	console.log([bookTitleArray.indexOf(randomIndex)])
-
+// Pick a random book title index 
+var randomIndex = [Math.floor(Math.random() * bookTitleArray.length)];
+	
+	// Sets text on page opening
 	currentGuess.innerHTML = "<h3>Guess a letter!</h3>";
 
-	bookQuote.innerHTML = "&#8220;" + bookQuoteArray[bookTitleArray.indexOf(randomIndex)] + "&#8221;";
-
-	var answerArray = [];
-		for (var i = 0; i < randomIndex.length; i++) {
-			 answerArray[i] = "_";
-			 if (answerArray[i] === " ") {
-			 	answerArray[i] = " ";
-			 }
-	    }
-
-	console.log(answerArray.join(" "));
-	bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
-
-	// Test! Starting Guess
+	// Start guess counter on page opening
 	guessRemaining.innerHTML = "<h3> You have " + guessStart + " guesses remaining.</h3>";
+
+	// Console log the index chosen
+	console.log(randomIndex);
+
+	// Console log the book title at that index
+	console.log(bookTitleArray[randomIndex]);
+
+	// Sets book quote to match random index chosen
+	bookQuote.innerHTML = "&#8220;" + bookQuoteArray[randomIndex] + "&#8221;";
+
+	// Sets blank Answer Array to equal number of letters/characters in book title, makes them
+	// into "_" characters
+	for (var i = 0; i < bookTitleArray[randomIndex].length; i++) {
+		answerArray[i] = "_";
+		bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
+    	}
+	    	// Console log the Answer  
+			console.log(answerArray.join(" "));
 
 	// When user presses a key, convert key to uppercase and check against current Book Title.
 	document.onkeyup = function() {
-	var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
-
-	currentGuess.innerHTML = "<h3>You guessed " + userGuess + "!</h3>";
-	lettersGuessed.push(userGuess);
-	console.log(lettersGuessed);
-	for (k = 0; k <lettersGuessed.length; k++)
-	lettersGuessedDiv.innerHTML = "<h3>" + (lettersGuessed.join(" ")) + "</h3>";
+	userGuess = String.fromCharCode(event.keyCode).toUpperCase();
+		// Console log key press
+		console.log(userGuess);
+		// Change text to show which key was pressed
+		currentGuess.innerHTML = "<h3>You guessed " + userGuess + "!</h3>";
+		// Add key press to answerArray and 
+		lettersGuessed.push(userGuess);
+		// Added letters guessed to "Letters Guessed:" page area
+		lettersGuessedDiv.innerHTML = "<h3>" + (lettersGuessed.join(" ")) + "</h3>";
+		// Console log answerArray as new letters are pressed
+		console.log(lettersGuessed);
 	}
 
-
-// // Create an array to house the underscores needed
-// var answerArray = [];
-// for (var i = 0; i <randomIndex.length; i++) {
-// 	answerArray[i] = "_";
-// 	bookTitle.innerHTML = "<h2>" + answerArray.join(" ") + "</h2>";
-// }
-
-// var remainingLetters = bookTitleArray.length;
-
-// document.onkeyup = function() {
-// 	var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
-
-// 	// if (userGuess === null) {
-// 	// 	// break;
-// 	// }
-// 	if (userGuess.length!==1) {
-// 		currentGuess.innerHTML = "<h3>Please press only one letter!</h3>";
-// 	}
-// 	else {
-// 		for (var j = 0; j < randomIndex.length; j++) {
-// 	 if (randomIndex[j] === userGuess) {
-// 	 	answerArray[j] = guess;
-// 	 	remainingLetters--;
-// 	 }
-// }
-// 	}
-// }
-
-// console.log(answerArray);
-
-// 	// bookTitle.innerHTML = "<h2>" + answerArray + "</h2>";
-
-// // Test! Starting Guess
-// 	guessRemaining.innerHTML = "<h3> You have " + guessStart + " guesses remaining.</h3>";
-// 	currentGuess.innerHTML = "<h3>Guess a letter!</h3>";
-
-// // When user presses a key, convert key to uppercase and check against current Book Title.
-// // document.onkeyup = function() {
-// // 	var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
-
-// for (var i = 0; i < alphabet.length; i++) {
-
-// 	// This is not working. Need to figure out the toUpperCase function.
-// 	// if (userGuess === alphabet[i].toUpperCase()) {
-// 	// 	currentGuess.innerHTML = "<h3>You guessed " + userGuess + "!</h3>";
-// 	// 	}
-
-// 	// This isn't working as expected -- need to work on these conditionals. Logging
-// 	// 25x for each go-round.
-// 	// else {
-// 	// 	console.log("Error");
-// 	// }
-
-// // Use this code for if the guess letter =/= letter in Book Title.
-// // else {
-// // 	guessStart = (guessStart - 1);
-// // 	guessRemaining.innerHTML = "<h3> You have " + guessStart + " guesses remaining.</h3>";
-// // }
-// }
-
-
-// // Test! Insert for loop that generates a random index to select book title and 
-// // also changes blockquote accordingly to match book.
-// // for (var i = 0; i < bookTitleArray.length; i++) {
-// 	// var randomNumber = (Math.floor(Math.random() * bookTitleArray.length));
-// 	// console.log(randomNumber);
-// 	bookQuote.innerHTML = "&#8220;" + bookQuoteArray[randomIndex] + "&#8221;";
-// 	bookTitle.innerHTML = "<h2>" + answerArray + "</h2>";
-
-
-// // 		if (userGuess === alphabet[randomNumber]) {
-// // 		alert("Yo!");
-// // }
+			for (j = 0; j < bookTitleArray[randomIndex].length; j++) {
+				console.log(j);
+				console.log(bookTitleArray[j]);
+				if (bookTitleArray.length[j] === userGuess) {
+					answerArray[j] = userGuess;
+					answerArray.join(" ");
+					remainingLetters--;
+					}
+				else {
+					guessStart--;
+				}
+			}
