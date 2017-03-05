@@ -34,6 +34,9 @@ var bookTitle = document.getElementById("book-title");
 // var currentTitle = bookTitleArray[randomNumber].toUpperCase();
 var currentGuess = document.getElementById("current-guess");
 var guessRemaining = document.getElementById("guess-remaining");
+var lettersGuessed = [];
+var lettersGuessedDiv = document.getElementById("letters-guessed");
+var lettersGuessedDiv2 = document.getElementById("letters-guessed-2");
 var guessStart = 15;
 var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 // var randomNumber = (Math.floor(Math.random() * bookTitleArray.length));
@@ -66,6 +69,10 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 	var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
 
 	currentGuess.innerHTML = "<h3>You guessed " + userGuess + "!</h3>";
+	lettersGuessed.push(userGuess);
+	console.log(lettersGuessed);
+	for (k = 0; k <lettersGuessed.length; k++)
+	lettersGuessedDiv.innerHTML = "<h3>" + (lettersGuessed.join(" ")) + "</h3>";
 	}
 
 

@@ -82,3 +82,8 @@ h1 {
 h4 {
 	text-decoration: underline;
 }
+
+#letters-guessed, h3 {
+	padding: 0px 20px 0px 20px;
+	text-align: center;
+}
