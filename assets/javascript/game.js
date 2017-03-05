@@ -48,7 +48,7 @@ var remainingLetters = currentTitle.length;
 var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 	
 	// Sets text on page opening
-	currentGuess.innerHTML = "<h3>Guess a letter!</h3>";
+	currentGuess.innerHTML = "<h3>Press any key to get started!</h3>";
 
 	// Start guess counter on page opening
 	guessRemaining.innerHTML = "<h3> You have " + guessStart + " guesses remaining.</h3>";
