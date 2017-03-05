@@ -107,7 +107,7 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 						console.log(guessStart);
 						// This is annoyingly decreasing this for each letter that is not === title, which is not what I want
 						// I just want it to decrease by 1 for each guess.
-						guessStart--;
+						// guessStart--;
 						guessRemaining.innerHTML = "<h3> You have " + guessStart + " guesses remaining.</h3>";
 					}
 
@@ -115,7 +115,7 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 						lettersGuessedDiv.innerHTML = "<h3>" + (lettersGuessed.join(" ")) + "</h3>";
 						// This is annoyingly decreasing this for each letter that is not === title, which is not what I want
 						// I just want it to decrease by 1 for each guess.
-						guessStart--;
+						// guessStart--;
 						guessRemaining.innerHTML = "<h3> You have " + guessStart + " guesses remaining.</h3>";
 					}
 				}
