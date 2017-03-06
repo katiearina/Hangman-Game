@@ -1,5 +1,3 @@
-// var bookTitle, currentGuess, bookQuote, previousGuess, guessRemaining
-
 // List of Book Titles
 var bookTitleArray = [
 "kafka on the shore", 
@@ -120,12 +118,13 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 					}
 				}
 
+			// This doesn't work correctly
 			var k = (currentTitle.indexOf(userGuess));
       			if (k === -1) {
         		guessStart -= 1;
       		} 
       			else {
-        		comments();
+      			// Nothing to see here
         	}
 
 	// End of function. Do not delete!
