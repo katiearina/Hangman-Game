@@ -65,33 +65,6 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 	// Sets book quote to match random index chosen
 	bookQuote.innerHTML = "&#8220;" + bookQuoteArray[randomIndex] + "&#8221;";
 
-// FUNCTIONS LIST
-	// Function to check if key pressed is a letter
-	function isALetter () {
-		for (i = 0; i < alphabet.length; i++) {
-			if (userGuess === alphabet[i]) {
-				return true;
-			}
-		}
-	}
-
-	// Function to check if letter matches letter insde currentTitle
-	function bookLetter () {
-		for (i = 0; currentTitle.length; i++) {
-			bookLetterYes = (userGuess === currentTitle[i]);
-			if (bookLetterYes === true) {
-				return true;
-			}
-		}
-	}
-
-	// Function to check if letter has already been guessed
-
-
-
-
-
-
 	// Sets blank Answer Array to equal number of letters/characters in book title, makes them
 	// into "_" characters
 	for (var i = 0; i < currentTitle.length; i++) {
@@ -99,19 +72,8 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 				answerArray[i] = "&nbsp;";
 				bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
 			}
-
-			else if (currentTitle.charAt(i) === ",") {
-				answerArray[i] = ",";
-				bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
-		    	}
-
-			else if (currentTitle.charAt(i) === "-") {
-				answerArray[i] = "-";
-				bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
-		    	}
-
 			else {
-				answerArray[i] = "_ ";
+				answerArray[i] = "_";
 				bookTitle.innerHTML = "<h2>" + (answerArray.join(" ")) + "</h2>";
 		    	}
     }
@@ -120,11 +82,11 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 
 	// When user presses a key, convert key to uppercase and check against current Book Title.
 	document.onkeyup = function() {
-	userGuess = String.fromCharCode(event.keyCode);
+	userGuess = String.fromCharCode(event.keyCode).toUpperCase();
 		// Console log key press
 		console.log(userGuess);
 		// Change text to show which key was pressed
-		currentGuess.innerHTML = "<h3>You guessed " + userGuess.toUpperCase() + "!</h3>";
+		currentGuess.innerHTML = "<h3>You guessed " + userGuess + "!</h3>";
 		// Add key press to answerArray and 
 		lettersGuessed.push(userGuess);
 		// Console log answerArray as new letters are pressed
@@ -157,6 +119,14 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 						guessRemaining.innerHTML = "<h3> You have " + guessStart + " guesses remaining.</h3>";
 					}
 				}
+
+			var k = (currentTitle.indexOf(userGuess));
+      			if (k === -1) {
+        		guessStart -= 1;
+      		} 
+      			else {
+        		comments();
+        	}
 
 	// End of function. Do not delete!
 	}
